@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>Generate VCF</title>
+<script src="./generate_vcf.js"></script>
+</head>
+<body>
+
+<h1>VCF Generator</h1>
+
+<ol>
+    <li>Enter name using format <i>last, first</i></li>
+    <li>Enter phone number in any standard format</li>
+    <li>Click GENERATE or DISPLAY</li>
+</ol>
+
+<label for="name">Name: </label>
+<input type="text" id="name" name="name" placeholder="last, first" />
+
+<label for="number">Phone: </label>
+<input type="tel" id="number" name="number" placeholder="(123) 456-7890" />
+
+<button type="submit" id="generate">GENERATE</button>
+<button type="submit" id="display">DISPLAY</button>
+
+<pre></pre>
+
+<script>
+
+window.addEventListener('load', () => {
+    let genButton = document.querySelector('#generate');
+    let displayButton = document.querySelector('#display')
+
+    genButton.addEventListener('click', e => {
+        e.preventDefault();
+
+        let name = document.querySelector('#name');
+        let number = document.querySelector('#number');
+        let output = document.querySelector('pre');
+
+        download('contacts.vcf', genVCF({
+            name: name.value,
+            number: number.value
+        }));
+    });
+
+    displayButton.addEventListener('click', e => {
+        e.preventDefault();
+
+        let name = document.querySelector('#name');
+        let number = document.querySelector('#number');
+        let output = document.querySelector('pre');
+
+        output.innerText = genVCF({
+            name: name.value,
+            number: number.value
+        });
+    });
+});
+
+function download(filename, text) {
+  let element = document.createElement('a');
+  element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+  element.setAttribute('download', filename);
+
+  element.style.display = 'none';
+  document.body.appendChild(element);
+
+  element.click();
+
+  document.body.removeChild(element);
+}
+
+</script>
+
+</body></html>
