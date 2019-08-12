@@ -29,4 +29,4 @@ let vData = {
   - Support more complex names (not just **lastname, firstname**)
   - Allow display name (`FN`) to be defined separate from standard name field (`N`)
   - Conversion of images to data URI for inclusion
-  - ES6 OOP rewrite
+  - ES6 OOP rewrite with helper methods
