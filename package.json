@@ -1,0 +1,24 @@
+{
+  "name": "generate_vcf",
+  "version": "1.0.0",
+  "description": "Script generates [RFC 2426](https://tools.ietf.org/html/rfc2426) version 3.0 vCard text from string input.",
+  "main": "generate_vcf.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronaldroe/generate_vcf.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ronaldroe/generate_vcf/issues"
+  },
+  "homepage": "https://github.com/ronaldroe/generate_vcf#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
